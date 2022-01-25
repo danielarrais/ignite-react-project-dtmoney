@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/react-modal": "^3.13.1",
     "axios": "^0.25.0",
     "miragejs": "^0.1.43",
     "react": "^17.0.2",
