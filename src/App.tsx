@@ -2,6 +2,9 @@ import { Dashboard } from './components/Dashboard';
 import { Header } from './components/Header';
 import { GlobalStyle } from './styles/global';
 import { createServer } from 'miragejs'
+import Modal from "react-modal";
+
+Modal.setAppElement('#root')
 
 createServer({
   routes() {
