@@ -45,6 +45,7 @@ export function NewTransactionModal({ openModalElement }: NewTransactionModalPro
     }
 
     api.post('/transactions', transaction);
+    setIsModalOpen(false);
   }
 
   return (
