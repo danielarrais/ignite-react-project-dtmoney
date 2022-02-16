@@ -9,14 +9,15 @@ import {
 import closeImg from '../../assets/close.svg'
 import IncomeImg from '../../assets/income.svg'
 import OutcomeImg from '../../assets/outcome.svg'
+import { api } from "../../services/api";
 
 interface NewTransactionModalProps {
   openModalElement: any;
 }
 
 enum TrancationType {
-  Income = 'income',
-  Outcome = 'outcome'
+  Income = 'deposit',
+  Outcome = 'withdraw'
 }
 
 export function NewTransactionModal({ openModalElement }: NewTransactionModalProps) {
@@ -43,7 +44,7 @@ export function NewTransactionModal({ openModalElement }: NewTransactionModalPro
       category
     }
 
-    console.log(transaction);
+    api.post('/transactions', transaction);
   }
 
   return (
