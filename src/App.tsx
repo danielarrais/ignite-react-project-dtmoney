@@ -33,7 +33,7 @@ createServer({
           id: 3,
           title: "Aulas NEXT",
           value: 500,
-          type: 'income',
+          type: 'deposit',
           category: 'Job',
           createdDate: new Date('2021-02-15 09:00:00')
         },
