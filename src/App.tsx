@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { GlobalStyle } from './styles/global';
 import { createServer, Model } from 'miragejs'
 import Modal from "react-modal";
-import { TransactionContext } from './TransactionContext';
+import { TransactionProvider } from './TransactionContext';
 
 Modal.setAppElement('#root')
 
@@ -61,11 +61,11 @@ createServer({
 
 function App() {
   return (
-    <TransactionContext.Provider value={[]}>
+    <TransactionProvider>
       <Header />
       <Dashboard />
       <GlobalStyle />
-    </TransactionContext.Provider>
+    </TransactionProvider>
   );
 }
 
