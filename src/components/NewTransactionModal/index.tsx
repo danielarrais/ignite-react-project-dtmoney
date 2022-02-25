@@ -35,11 +35,18 @@ export function NewTransactionModal({ openModalElement }: NewTransactionModalPro
     setIsModalOpen(false)
   }
 
-  const handleCreateNewTransaction = (event: FormEvent) => {
-    event.preventDefault();
-
-    createTransaction({ title, value, type, category })
+  const resetStates = () => {
+    setType(TrancationType.Income);
+    setTitle('');
+    setValue(0);
+    setCategory('');
     setIsModalOpen(false);
+  }
+
+  const handleCreateNewTransaction = async (event: FormEvent) => {
+    event.preventDefault();
+    await createTransaction({ title, value, type, category })
+    resetStates();
   }
 
   return (
