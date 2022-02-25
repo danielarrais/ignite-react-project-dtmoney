@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import Modal from "react-modal";
 import {
   Container,
@@ -9,7 +9,7 @@ import {
 import closeImg from '../../assets/close.svg'
 import IncomeImg from '../../assets/income.svg'
 import OutcomeImg from '../../assets/outcome.svg'
-import { api } from "../../services/api";
+import { TransactionContext } from "../../TransactionContext";
 
 interface NewTransactionModalProps {
   openModalElement: any;
@@ -26,6 +26,7 @@ export function NewTransactionModal({ openModalElement }: NewTransactionModalPro
   const [title, setTitle] = useState('');
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState('');
+  const { createTransaction } = useContext(TransactionContext);
 
   const handleOpenModal = () => {
     setIsModalOpen(true)
@@ -37,14 +38,7 @@ export function NewTransactionModal({ openModalElement }: NewTransactionModalPro
   const handleCreateNewTransaction = (event: FormEvent) => {
     event.preventDefault();
 
-    const transaction = {
-      title,
-      value,
-      type,
-      category
-    }
-
-    api.post('/transactions', transaction);
+    createTransaction({ title, value, type, category })
     setIsModalOpen(false);
   }
 
